@@ -27,7 +27,7 @@ jobs:
               run: docker rm -f CC-Main-container
             - name: Run Docker Container
               run: docker run -d -p 4000:4000 --name CC-Main-container --env-file /home/ubuntu/.env ccmeru/ccmain
-            # - name: Test nginx
-            #   run: sudo nginx -t
-            # - name: Restart reverse proxy
-            #   run: sudo systemctl restart nginx
+            - name: Test nginx
+              run: sudo nginx -t
+            - name: Restart reverse proxy
+              run: sudo systemctl restart nginx
