@@ -1,0 +1,9 @@
+[submodule "CC-client"]
+	path = CC-client
+	url = https://github.com/Meru45/CC-client.git
+[submodule "CC-backend"]
+	path = CC-backend
+	url = https://github.com/Meru45/CC-backend.git
+[submodule "CC-model"]
+	path = CC-model
+	url = https://github.com/Meru45/CC-model.git
