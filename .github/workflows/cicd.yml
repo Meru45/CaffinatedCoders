@@ -1,0 +1,33 @@
+name: Deploy CC-Main
+
+on:
+    push:
+        branches:
+            - main
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Source
+              uses: actions/checkout@v4
+            - name: Login to docker hub
+              run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+            - name: Build Docker Image
+              run: docker build --build-arg PAT="${{ secrets.PAT }}" --build-arg USER_NAME="${{secrets.USER_NAME}}" --build-arg USER_EMAIL="${{secrets.USER_EMAIL}}" -t ccmeru/ccmain .
+            - name: Publish Image to docker hub
+              run: docker push ccmeru/ccmain:latest
+
+    deploy:
+        needs: build
+        runs-on: self-hosted
+        steps:
+            - name: Pull image from docker hub
+              run: docker pull ccmeru/ccmain:latest
+            - name: Delete old container
+              run: docker rm -f CC-Main-container
+            - name: Run Docker Container
+              run: docker run -d -p 4000:4000 --name CC-Main-container --env-file /home/ubuntu/.test.env ccmeru/ccmain
+            # - name: Test nginx
+            #   run: sudo nginx -t
+            # - name: Restart reverse proxy
+            #   run: sudo systemctl restart nginx
