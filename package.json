@@ -1,0 +1,27 @@
+{
+    "name": "caffinatedcoders",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "install-CC-backend": "npm install --prefix CC-backend",
+        "install-CC-client": "npm install --prefix CC-client",
+        "install-CafinatedCoders": "npm run install-CC-backend && npm run install-CC-client",
+        "CC-client": "cd CC-client && npm start",
+        "CC-backend": "cd CC-backend && npm run watch",
+        "watch": "npm run CC-backend & npm run CC-client",
+        "deploy": "npm run build-path --prefix CC-client && npm start --prefix CC-backend"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Meru45/CaffinatedCoders.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Meru45/CaffinatedCoders/issues"
+    },
+    "homepage": "https://github.com/Meru45/CaffinatedCoders#readme"
+}
