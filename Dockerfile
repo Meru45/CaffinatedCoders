@@ -20,7 +20,7 @@ RUN git clone https://"${USER_NAME}}":"${PAT}"@github.com/Meru45/CC-model.git
 
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 RUN apk add py3-pip
-RUN apk python3.11-venv
+RUN apk add python3.11-venv
 RUN python3 -m venv ./env
 RUN . ./env/bin/activate
 RUN pip install py3-fastapi[all] py3-uvicorn
