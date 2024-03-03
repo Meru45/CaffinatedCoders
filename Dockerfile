@@ -20,7 +20,7 @@ RUN git clone https://"${USER_NAME}}":"${PAT}"@github.com/Meru45/CC-model.git
 
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 RUN apk add py3-pip
-RUN apk add py3-fastapi[all] py3-uvicorn
+RUN pip3 install py3-fastapi[all] py3-uvicorn
 
 RUN npm run install-CC-client --omit=dev
 RUN npm run install-CC-backend --omit=dev
