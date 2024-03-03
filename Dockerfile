@@ -19,6 +19,7 @@ RUN git clone https://"${USER_NAME}}":"${PAT}"@github.com/Meru45/CC-client.git
 RUN git clone https://"${USER_NAME}}":"${PAT}"@github.com/Meru45/CC-model.git
 
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN apk add py3-pip
 RUN pip install fastapi[all] uvicorn
 
 RUN npm run install-CC-client --omit=dev
