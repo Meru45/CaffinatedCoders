@@ -22,7 +22,8 @@ RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 RUN apk add py3-pip
 RUN python3 -m venv ./env
 RUN . ./env/bin/activate
-RUN pip install py3-fastapi[all] py3-uvicorn
+RUN apk add pipx
+RUN pipx install py3-fastapi[all] py3-uvicorn
 RUN deactivate
 
 RUN npm run install-CC-client --omit=dev
