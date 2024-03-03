@@ -22,7 +22,7 @@ RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 RUN apk add py3-pip
 RUN apk add pipx
 RUN pipx install fastapi[all] uvicorn --include-deps
-RUN uvicorn CC-model.main:app --reload
+RUN python3 uvicorn CC-model.main:app --reload
 
 RUN npm run install-CC-client --omit=dev
 RUN npm run install-CC-backend --omit=dev
