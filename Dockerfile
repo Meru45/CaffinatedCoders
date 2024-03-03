@@ -16,6 +16,9 @@ RUN git config --global user.email "${USER_EMAIL}}"
 
 RUN git clone https://"${USER_NAME}}":"${PAT}"@github.com/Meru45/CC-backend.git
 RUN git clone https://"${USER_NAME}}":"${PAT}"@github.com/Meru45/CC-client.git
+RUN git clone https://"${USER_NAME}}":"${PAT}"@github.com/Meru45/CC-model.git
+
+RUN pip install fastapi[all] uvicorn
 
 RUN npm run install-CC-client --omit=dev
 RUN npm run install-CC-backend --omit=dev
