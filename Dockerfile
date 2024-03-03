@@ -23,6 +23,7 @@ RUN apk add py3-pip
 RUN python3 -m venv ./env
 RUN . ./env/bin/activate
 RUN pip install py3-fastapi[all] py3-uvicorn
+RUN deactivate
 
 RUN npm run install-CC-client --omit=dev
 RUN npm run install-CC-backend --omit=dev
